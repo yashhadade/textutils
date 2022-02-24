@@ -7,9 +7,8 @@ import Alert from './components/Alert';
 import About from './components/About';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
-  Link
 } from "react-router-dom";
 
 //import About from './components/About';
@@ -46,24 +45,24 @@ function App() {
   }
   return (
    <>
-  <Router>
+  <Routes>
    <Navbar title="Textutils" moded={darkMode} toggleMode={toggleMode}aboutText="About Textutils"/>
    <Alert alert={alert}/>
     <div className="container my-3">
     
-       <Switch>
-          <Route path="/about">
-            <About />
+       
+          <Route path="/about" element={<About/>}>
+            {/* <About /> */}
           </Route>
           
-          <Route path="/">
-          {<Textform showAlert={showAlert} heading="Enter the text to analyze below"mode={darkMode}/>}
+          <Route path="/" element={<Textform showAlert={showAlert} heading="Enter the text to analyze below"mode={darkMode}/>}>
+          {/* {<Textform showAlert={showAlert} heading="Enter the text to analyze below"mode={darkMode}/>} */}
           </Route>
-        </Switch>
+       
        {/*<About/>*/}
    
     </div>
- </Router>
+ </Routes>
    </>
   );
 }
