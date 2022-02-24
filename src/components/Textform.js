@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+
 export default function Textform(props) {
     const handleUpClick =()=>{
         //console.log("Uppercase was clicked" +text);
@@ -32,16 +33,16 @@ export default function Textform(props) {
       <div className="mb-3">
          <textarea className="form-control" value={text}  onChange={handleOnChange} id="myBox" rows="8"></textarea>
      </div>
-     <button className="btn btn-primary mx-2"onClick={handleUpClick}>Convert to Upper case</button>
-     <button className="btn btn-primary mx-2"onClick={handleLoClick}>Convert to Lower case</button>
-     <button className="btn btn-primary mx-2"onClick={handleClClick}>Clear text</button>
+     <button className="btn btn-primary mx-2 my-1"onClick={handleUpClick}>Convert to Upper case</button>
+     <button className="btn btn-primary mx-2 my1"onClick={handleLoClick}>Convert to Lower case</button>
+     <button className="btn btn-primary mx-2 my1"onClick={handleClClick}>Clear text</button>
     </div>
     <div className="container my-3">
         <h2>
             Your text summery
         </h2>
         <p>
-            {text.split(" ").length} words,{text.length} charecters
+            {text.split(" ").filter((element)=>{return element.lenght!=0}).length} words,{text.length} charecters
         
         </p>
         <p>{0.008*text.split(" ").length} Minutes read</p>
